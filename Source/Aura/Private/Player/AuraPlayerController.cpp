@@ -103,7 +103,7 @@ void AAuraPlayerController::AbilityInputTagReleased(FGameplayTag InputTag)
 			UNavigationPath* NavPath = UNavigationSystemV1::FindPathToLocationSynchronously(this,
 				ControlledPawn->GetActorLocation(),
 				CachedDestination);
-			if (NavPath)
+			if (NavPath && NavPath->IsValid())
 			{
 				Spline->ClearSplinePoints();
 				for (const FVector& PointLoc : NavPath->PathPoints)
